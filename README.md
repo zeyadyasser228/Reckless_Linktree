@@ -25,26 +25,20 @@ An ultra-premium, high-fashion streetwear Linktree template engineered with sema
    - Acid lime (`#d8ff00`) and Reckless red (`#ff3333`) brand accents.
    - Smooth hover 3D transforms and micro-interactions.
 
-2. **1-Click Promo Code Voucher:**
-   - "Use code **RECKLESS10** for 10% OFF" with 1-click clipboard copy, audio feedback, and celebration toast.
-
-3. **Built-in QR Code Generator (Pure JavaScript):**
+2. **Built-in QR Code Generator (Pure JavaScript):**
    - Offline, canvas-based QR code synthesis for in-person sharing at popups, stores, and events.
    - Quick "System Share" via the native Web Share API on mobile devices.
 
-4. **1-Tap Contact Card (.vcf / vCard):**
+3. **1-Tap Contact Card (.vcf / vCard):**
    - Allows customers to download and save RECKLESS directly to their smartphone contacts.
 
-5. **Category Filter Tabs:**
+4. **Category Filter Tabs:**
    - Instant filtering: `ALL LINKS`, `SOCIALS`, `SHOP DROPS`, `SUPPORT`.
 
-6. **Web Audio API Haptics:**
+5. **Web Audio API Haptics:**
    - Subtle tactile mechanical click sounds on interactive elements with persistent mute toggle in header.
 
-7. **VIP Drop Club:**
-   - Interactive email signup with local verification and notification toasts.
-
-8. **Fully Responsive:**
+6. **Fully Responsive:**
    - Fluid responsive layout optimized for iPhone, Android, tablets, and widescreen desktop displays.
 
 ---

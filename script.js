@@ -2,12 +2,10 @@
  * RECKLESS FASHION — OFFICIAL LINKTREE JAVASCRIPT
  * Features:
  * - Dynamic Link Categorization & Filtering
- * - 1-Click Promo Code Copy with Audio & Toast Feedback
  * - Pure Vanilla Scannable QR Code Generator for Canvas
  * - Web Share API & Fallback Glassmorphism Modal
  * - Instant Contact (.vcf vCard) Generation & Download
  * - Web Audio API Synthetic Tactile Audio Clicks
- * - Newsletter / VIP Drop Signup Handler
  * - Mouse Ambient Glow Follower for Desktop
  */
 
@@ -17,7 +15,6 @@
   // --- Configuration ---
   const BRAND_CONFIG = {
     websiteUrl: 'https://www.reckless-fashion.com/',
-    promoCode: 'RECKLESS10',
     brandName: 'RECKLESS Fashion',
     phone: '+201041284366',
     email: 'reckless.fashion01@gmail.com',
@@ -237,34 +234,6 @@
           }
         });
       });
-    });
-  }
-
-  // --- 1-Click Promo Code Copy ---
-  function initPromoCode() {
-    const copyBtn = document.getElementById('copyCouponBtn');
-    if (!copyBtn) return;
-
-    copyBtn.addEventListener('click', async () => {
-      playSuccessSound();
-      const code = copyBtn.getAttribute('data-code') || BRAND_CONFIG.promoCode;
-      const ok = await copyToClipboard(code);
-
-      if (ok) {
-        const label = copyBtn.querySelector('.btn-label');
-        const origText = label ? label.textContent : 'COPY';
-        if (label) label.textContent = 'COPIED! ✓';
-        copyBtn.style.background = 'var(--reckless-acid)';
-        copyBtn.style.color = '#000';
-
-        showToast('PROMO CODE COPIED!', `Use code ${code} for 10% off at checkout`, 'fire');
-
-        setTimeout(() => {
-          if (label) label.textContent = origText;
-          copyBtn.style.background = '';
-          copyBtn.style.color = '';
-        }, 2500);
-      }
     });
   }
 
@@ -585,52 +554,6 @@
     }
   }
 
-  // --- VIP Newsletter / Drops Club ---
-  function initNewsletter() {
-    const form = document.getElementById('newsletterForm');
-    const input = document.getElementById('vipEmail');
-    const submitBtn = document.getElementById('vipSubmitBtn');
-
-    if (!form || !input || !submitBtn) return;
-
-    submitBtn.addEventListener('click', () => {
-      const email = input.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!email || !emailRegex.test(email)) {
-        playClickSound(300, 'sawtooth', 0.1);
-        showToast('INVALID EMAIL', 'Please enter a valid email address');
-        input.focus();
-        return;
-      }
-
-      playSuccessSound();
-
-      try {
-        localStorage.setItem('reckless_vip_email', email);
-      } catch (e) {}
-
-      input.value = '';
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>WELCOME ✓</span>`;
-      submitBtn.style.background = '#ffffff';
-
-      showToast('WELCOME TO RECKLESS CLUB', 'Use code RECKLESS10 for 10% off your first order!', 'fire');
-
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `
-          <span>JOIN CLUB</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        `;
-        submitBtn.style.background = '';
-      }, 3500);
-    });
-  }
-
   // --- Dynamic Year ---
   function initYear() {
     const yearEl = document.getElementById('currentYear');
@@ -680,10 +603,8 @@
   document.addEventListener('DOMContentLoaded', () => {
     initSoundToggle();
     initCategoryFilter();
-    initPromoCode();
     initVCardDownload();
     initShareModal();
-    initNewsletter();
     initYear();
     initLinkAudioTriggers();
     initAmbientFollower();
